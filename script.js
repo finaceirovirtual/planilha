@@ -1,5 +1,16 @@
 // script.js
-import { auth, onAuthStateChanged } from './firebase.js';
+import { auth, signOut } from "./firebase.js";
+
+const logoutButton = document.getElementById("logout");
+
+logoutButton.addEventListener("click", async () => {
+  try {
+    await signOut(auth);
+    window.location.href = "login.html"; // Redirecionar para a página de login
+  } catch (error) {
+    alert("Erro ao sair: " + error.message);
+  }
+});
 
 // Atualizar o email do usuário no header
 onAuthStateChanged(auth, (user) => {
@@ -8,6 +19,26 @@ onAuthStateChanged(auth, (user) => {
   } else {
     window.location.href = 'login.html'; // Redirecionar para a página de login
   }
+});
+
+const sidebar = document.querySelector(".sidebar");
+const menuToggle = document.createElement("button");
+menuToggle.classList.add("menu-toggle");
+menuToggle.innerHTML = "&#9776;"; // Ícone de menu
+document.body.appendChild(menuToggle);
+
+// Abrir/fechar ao passar o mouse
+sidebar.addEventListener("mouseenter", () => {
+  sidebar.classList.remove("collapsed");
+});
+
+sidebar.addEventListener("mouseleave", () => {
+  sidebar.classList.add("collapsed");
+});
+
+// Abrir/fechar ao clicar no botão de menu (celular)
+menuToggle.addEventListener("click", () => {
+  sidebar.classList.toggle("collapsed");
 });
 
 // Exemplo de cálculo de saldo

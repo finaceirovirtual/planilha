@@ -8,10 +8,20 @@
 </head>
 <body>
   <header class="header">
-    <h1 id="user-email"></h1>
+    <h1 id="username">Configurações</h1>
     <div class="header-buttons">
-      <button id="notifications"><img src="assets/bell.png" alt="Notificações" class="icon"></button>
-      <button id="profile"><img src="assets/user.png" alt="Perfil" class="icon"></button>
+      <button id="notifications">
+        <img src="assets/bell.png" alt="Notificações" class="icon">
+      </button>
+      <div class="user-menu">
+        <button id="profile">
+          <img src="assets/user.png" alt="Perfil" class="icon">
+        </button>
+        <div class="dropdown-content">
+          <a href="settings.html">Configurações</a>
+          <button id="logout">Sair</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -30,14 +40,15 @@
   </aside>
 
   <main class="main-content">
-    <h1>Configurações</h1>
     <div class="settings-card">
-      <h2>Perfil</h2>
-      <p>Email: <span id="user-email-settings"></span></p>
-    </div>
-    <div class="settings-card">
-      <h2>Tema</h2>
-      <button id="toggle-dark-mode">Alternar Modo Escuro</button>
+      <h2>Dados Pessoais</h2>
+      <form id="user-settings-form">
+        <div class="form-group">
+          <label for="username">Nome de Usuário</label>
+          <input type="text" id="username-input" name="username" required>
+        </div>
+        <button type="submit">Salvar</button>
+      </form>
     </div>
   </main>
 

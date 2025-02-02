@@ -1,6 +1,9 @@
 import {
   auth,
   createUserWithEmailAndPassword,
+  db,
+  collection,
+  addDoc,
 } from "./firebase.js";
 
 const registerForm = document.getElementById("register-form");
@@ -22,6 +25,16 @@ registerForm.addEventListener("submit", async (e) => {
       email,
       password
     );
+    const user = userCredential.user;
+
+    // Criar um documento no Firestore para o usuário
+    await addDoc(collection(db, "users"), {
+      uid: user.uid,
+      email: user.email,
+      username: "", // Nome de usuário será definido nas configurações
+      createdAt: new Date(),
+    });
+
     alert("Usuário registrado com sucesso!");
     window.location.href = "index.html"; // Redirecionar para a página principal
   } catch (error) {

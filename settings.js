@@ -1,22 +1,21 @@
-import { auth } from './firebase.js';
+import { auth, db, doc, setDoc } from "./firebase.js";
 
-const userEmailSettings = document.getElementById('user-email-settings');
-const toggleDarkMode = document.getElementById('toggle-dark-mode');
+const userSettingsForm = document.getElementById("user-settings-form");
+const usernameInput = document.getElementById("username-input");
 
-// Mostrar email do usuário
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    userEmailSettings.textContent = user.email;
+userSettingsForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const username = usernameInput.value;
+
+  try {
+    const user = auth.currentUser;
+    if (user) {
+      await setDoc(doc(db, "users", user.uid), {
+        username: username,
+      }, { merge: true }); // Atualiza apenas o campo username
+      alert("Nome de usuário salvo com sucesso!");
+    }
+  } catch (error) {
+    alert("Erro ao salvar nome de usuário: " + error.message);
   }
 });
-
-// Alternar modo escuro
-toggleDarkMode.addEventListener('click', () => {
-  document.documentElement.classList.toggle('dark');
-  localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-});
-
-// Verificar tema salvo
-if (localStorage.getItem('theme') === 'dark') {
-  document.documentElement.classList.add('dark');
-}
