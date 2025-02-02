@@ -1,5 +1,4 @@
-// script.js
-import { auth, db, doc, getDoc } from "./firebase.js";
+import { auth, db, doc, getDoc, signOut } from "./firebase.js";
 
 const usernameHeader = document.getElementById("username");
 
@@ -26,15 +25,6 @@ logoutButton.addEventListener("click", async () => {
   }
 });
 
-// Atualizar o email do usuário no header
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    document.getElementById('user-email').textContent = user.email;
-  } else {
-    window.location.href = 'login.html'; // Redirecionar para a página de login
-  }
-});
-
 const sidebar = document.querySelector(".sidebar");
 const menuToggle = document.createElement("button");
 menuToggle.classList.add("menu-toggle");
@@ -54,13 +44,3 @@ sidebar.addEventListener("mouseleave", () => {
 menuToggle.addEventListener("click", () => {
   sidebar.classList.toggle("collapsed");
 });
-
-// Exemplo de cálculo de saldo
-const totalBalance = document.getElementById('total-balance');
-const totalIncome = document.getElementById('total-income');
-const totalExpense = document.getElementById('total-expense');
-
-// Simulação de dados
-totalBalance.textContent = 'R$ 1.500,00';
-totalIncome.textContent = 'R$ 2.000,00';
-totalExpense.textContent = 'R$ 500,00';
