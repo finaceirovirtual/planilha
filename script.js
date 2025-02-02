@@ -1,5 +1,19 @@
 // script.js
-import { auth, signOut } from "./firebase.js";
+import { auth, db, doc, getDoc } from "./firebase.js";
+
+const usernameHeader = document.getElementById("username");
+
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    const userDoc = await getDoc(doc(db, "users", user.uid));
+    if (userDoc.exists()) {
+      const username = userDoc.data().username;
+      usernameHeader.textContent = username || user.email;
+    } else {
+      usernameHeader.textContent = user.email;
+    }
+  }
+});
 
 const logoutButton = document.getElementById("logout");
 

@@ -450,3 +450,118 @@ button:hover {
     display: block;
   }
 }
+
+/* Estilos para o modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #2d2d2d;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  color: #fff;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h2 {
+  margin: 0;
+}
+
+.modal-header button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #444;
+  color: #fff;
+}
+
+.form-group input[type="checkbox"] {
+  width: auto;
+}
+
+.btn-primary {
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: #4338ca;
+}
+
+/* Tema escuro */
+body {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.header {
+  background-color: #2d2d2d;
+  color: #fff;
+}
+
+.sidebar {
+  background-color: #2d2d2d;
+}
+
+.sidebar-nav .nav-item {
+  color: #fff;
+}
+
+.sidebar-nav .nav-item.active {
+  background-color: #444;
+}
+
+.transactions-table {
+  background-color: #2d2d2d;
+  color: #fff;
+}
+
+.transactions-table th {
+  background-color: #444;
+}
+
+.transactions-table td {
+  border-bottom: 1px solid #444;
+}
