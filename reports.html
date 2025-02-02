@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatórios - Finance Control</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1 id="user-email"></h1>
+    <div class="header-buttons">
+      <button id="notifications"><img src="assets/bell.png" alt="Notificações" class="icon"></button>
+      <button id="profile"><img src="assets/user.png" alt="Perfil" class="icon"></button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="assets/home.png" alt="Logo" class="icon">
+      <span>FinanceApp</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item">Dashboard</a>
+      <a href="transactions.html" class="nav-item">Transações</a>
+      <a href="reports.html" class="nav-item active">Relatórios</a>
+      <a href="settings.html" class="nav-item">Configurações</a>
+      <a href="help.html" class="nav-item">Ajuda</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <h1>Relatórios</h1>
+    <div class="reports-grid">
+      <div class="report-card">
+        <h3>Receitas</h3>
+        <p id="total-income">R$ 0,00</p>
+      </div>
+      <div class="report-card">
+        <h3>Despesas</h3>
+        <p id="total-expense">R$ 0,00</p>
+      </div>
+      <div class="report-card">
+        <h3>Saldo</h3>
+        <p id="total-balance">R$ 0,00</p>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="reports.js"></script>
+</body>
+</html>

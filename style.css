@@ -1,0 +1,342 @@
+/* style.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-buttons button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sidebar-logo {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar-nav {
+  padding: 20px;
+}
+
+.nav-item {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-item.active {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+/* Estilos para Login e Registro */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.login-box {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.logo h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4338ca;
+}
+
+.social-login {
+  margin-top: 20px;
+}
+
+.social-login p {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.social-login button {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+  margin: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.social-login button:hover {
+  background-color: #f4f4f4;
+}
+
+.register-link, .login-link {
+  margin-top: 20px;
+  color: #555;
+}
+
+.register-link a, .login-link a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.register-link a:hover, .login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para ícones PNG */
+.icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.social-login button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+  margin: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.social-login button:hover {
+  background-color: #f4f4f4;
+}
+
+/* Estilos para ícones */
+.icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+.header-buttons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaço entre o ícone e o texto (se houver) */
+}
+
+.sidebar-logo img {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+}
+
+/* Estilos para a página de Transações */
+.transactions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background-color: #4338ca;
+}
+
+.transactions-table {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.transactions-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions-table th,
+.transactions-table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.transactions-table th {
+  background-color: #f4f4f4;
+  font-weight: 600;
+}
+
+.transactions-table tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+.transactions-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Estilos para a página de Relatórios */
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.report-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.report-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.report-card p {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Estilos para a página de Configurações */
+.settings-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.settings-card h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#toggle-dark-mode {
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#toggle-dark-mode:hover {
+  background-color: #4338ca;
+}
+
+/* Estilos para a página de Ajuda */
+.help-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.help-card h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}

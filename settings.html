@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurações - Finance Control</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1 id="user-email"></h1>
+    <div class="header-buttons">
+      <button id="notifications"><img src="assets/bell.png" alt="Notificações" class="icon"></button>
+      <button id="profile"><img src="assets/user.png" alt="Perfil" class="icon"></button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="assets/home.png" alt="Logo" class="icon">
+      <span>FinanceApp</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item">Dashboard</a>
+      <a href="transactions.html" class="nav-item">Transações</a>
+      <a href="reports.html" class="nav-item">Relatórios</a>
+      <a href="settings.html" class="nav-item active">Configurações</a>
+      <a href="help.html" class="nav-item">Ajuda</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <h1>Configurações</h1>
+    <div class="settings-card">
+      <h2>Perfil</h2>
+      <p>Email: <span id="user-email-settings"></span></p>
+    </div>
+    <div class="settings-card">
+      <h2>Tema</h2>
+      <button id="toggle-dark-mode">Alternar Modo Escuro</button>
+    </div>
+  </main>
+
+  <script type="module" src="settings.js"></script>
+</body>
+</html>
