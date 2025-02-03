@@ -1,7 +1,11 @@
-import { auth, db, doc, getDoc, signOut } from "./firebase.js";
+import { auth, db, doc, getDoc, onAuthStateChanged } from "./firebase.js";
 
 const usernameHeader = document.getElementById("username");
+const totalBalance = document.getElementById("total-balance");
+const totalIncome = document.getElementById("total-income");
+const totalExpense = document.getElementById("total-expense");
 
+// Carregar nome de usuário
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     const userDoc = await getDoc(doc(db, "users", user.uid));
@@ -11,6 +15,28 @@ onAuthStateChanged(auth, async (user) => {
     } else {
       usernameHeader.textContent = user.email;
     }
+
+    // Carregar transações para calcular saldo
+    const q = query(collection(db, "transactions"), where("userId", "==", user.uid));
+    onSnapshot(q, (snapshot) => {
+      let income = 0;
+      let expense = 0;
+
+      snapshot.forEach((doc) => {
+        const transaction = doc.data();
+        if (transaction.type === "income") {
+          income += transaction.amount;
+        } else {
+          expense += transaction.amount;
+        }
+      });
+
+      totalIncome.textContent = `R$ ${income.toFixed(2)}`;
+      totalExpense.textContent = `R$ ${expense.toFixed(2)}`;
+      totalBalance.textContent = `R$ ${(income - expense).toFixed(2)}`;
+    });
+  } else {
+    window.location.href = "login.html"; // Redirecionar para a página de login
   }
 });
 
@@ -23,24 +49,4 @@ logoutButton.addEventListener("click", async () => {
   } catch (error) {
     alert("Erro ao sair: " + error.message);
   }
-});
-
-const sidebar = document.querySelector(".sidebar");
-const menuToggle = document.createElement("button");
-menuToggle.classList.add("menu-toggle");
-menuToggle.innerHTML = "&#9776;"; // Ícone de menu
-document.body.appendChild(menuToggle);
-
-// Abrir/fechar ao passar o mouse
-sidebar.addEventListener("mouseenter", () => {
-  sidebar.classList.remove("collapsed");
-});
-
-sidebar.addEventListener("mouseleave", () => {
-  sidebar.classList.add("collapsed");
-});
-
-// Abrir/fechar ao clicar no botão de menu (celular)
-menuToggle.addEventListener("click", () => {
-  sidebar.classList.toggle("collapsed");
 });

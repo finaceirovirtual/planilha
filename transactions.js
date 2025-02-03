@@ -1,4 +1,13 @@
-import { auth, db, collection, addDoc, query, where, onSnapshot } from "./firebase.js";
+import {
+  auth,
+  db,
+  collection,
+  addDoc,
+  query,
+  where,
+  onSnapshot,
+  onAuthStateChanged,
+} from "./firebase.js";
 
 const newTransactionButton = document.getElementById("new-transaction");
 const transactionModal = document.getElementById("transaction-modal");
